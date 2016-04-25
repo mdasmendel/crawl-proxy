@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 app.post('/proxy', function (req, res) {
     console.log(req.body.method)
     request(req.body, function (err, resp, body) {
-        if(resp.statusCode){
+        if(resp.statusCode != 200){
             res.status(400).send(body)
         } else {
             res.status(200).send(body)
